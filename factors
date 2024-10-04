@@ -10,11 +10,20 @@ def factorize(n):
 
 
 def process_file(filename):
-    with open(filename, 'r') as f:
-        for line in f:
-            n = int(line.strip())
-            p, q = factorize(n)
-            print("{}={}*{}".format(n, p, q))
+    try:
+        with open(filename, 'r') as f:
+            for line in f:
+                n = int(line.strip())
+                p, q = factorize(n)
+
+                if p and q:
+                    print("{}={}*{}".format(n, p, q))
+                else:
+                    print("No factors found for {}".format(n))
+    except FileNotFoundError:
+        print("Error: File {} not found".format(filename))
+    except ValueError:
+        print("Error: Ensure the file contains valid integers")
 
 
 if __name__ == "__main__":
