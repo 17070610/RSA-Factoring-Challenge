@@ -21,7 +21,7 @@ def process_file(filename):
                 else:
                     print("No factors found for {}".format(n))
     except FileNotFoundError:
-        print("Error: File {} not found".format(filename))
+        print("Error: File {} not found".format(file_name))
     except ValueError:
         print("Error: Ensure the file contains valid integers")
 
@@ -31,5 +31,5 @@ if __name__ == "__main__":
         print("Usage: factors <file>")
         sys.exit(1)
 
-    file = sys.argv[1]
-    process_file(file)
+    file_name = sys.argv[1]
+    process_file(file_name)
